@@ -16,16 +16,18 @@ export class UtilisateurService {
     return this.http.get(`${this.baseUrl}`+'/admin/show');  
   }  
   
-  createOrUpdateUtilisateur(utilisateur: object): Observable<object> {  
-    return this.http.post(`${this.baseUrl}`+'/admin/add', utilisateur);  
+  createOrUpdateUtilisateur(utilisateur: object) {  
+    console.log(`${this.baseUrl}`+'/admin/add');
+    return this.http.post(`${this.baseUrl}`+'/admin/add', utilisateur).toPromise();  
+    
   }  
   
-  deleteStudent(id: number): Observable<any> {  
+  deleteUtilisateur(id: number): Observable<any> {  
     return this.http.delete(`${this.baseUrl}/admin/${id}`, { responseType: 'text' });  
   }  
   
-  getStudent(id: number): Observable<Object> {  
-    return this.http.get(`${this.baseUrl}/admin/${id}`);  
+  getUtilisateur(id: number) {  
+    return this.http.get(`${this.baseUrl}/admin/${id}`).toPromise();  
   }  
 
 }  

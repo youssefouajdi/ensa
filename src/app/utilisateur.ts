@@ -7,7 +7,7 @@ export class Utilisateur {
     prenom:String| undefined;
     created_at:Date| undefined;
     updated_at:Date| undefined;
-    etat:boolean| undefined;
+    etat:false | undefined;
 
 }
 
