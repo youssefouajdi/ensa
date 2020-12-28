@@ -15,9 +15,7 @@ export class ApplicationService {
   }  
   
   createOrUpdateApplication(application: object) {  
-    console.log(`${this.baseUrl}`+'/admin/add');
     return this.http.post(`${this.baseUrl}`+'/admin/add', application).toPromise();  
-    
   }  
   
   deleteApplication(id: number): Observable<any> {  

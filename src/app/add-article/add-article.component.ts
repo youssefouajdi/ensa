@@ -19,10 +19,10 @@ export class AddArticleComponent implements OnInit {
   }  
   
   articlesaveform=new FormGroup({  
-    nom:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
-    prenom:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
-    mdp:new FormControl('' , [Validators.required , Validators.minLength(5) ] ), 
-    email:new FormControl('',[Validators.required,Validators.email]),  
+    titre:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
+    description:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
+    lien:new FormControl('' , [Validators.required , Validators.minLength(5) ] ), 
+    etat:new FormControl('',[Validators.required])
   });  
 
   
@@ -30,7 +30,7 @@ export class AddArticleComponent implements OnInit {
     this.article=new Article();     
     this.article.titre=this.ApplicationTitre?.value
     this.article.etat=this.ApplicationEtat?.value;
-    this.article.descritpion=this.ApplicationDesc?.value
+    this.article.desc=this.ApplicationDesc?.value
     this.article.lien_article=this.Applicationlien?.value;  
     this.submitted = true;  
     this.save();  

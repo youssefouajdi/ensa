@@ -20,10 +20,10 @@ export class AddApplicationComponent implements OnInit {
   }  
   
   applicationsaveform=new FormGroup({  
-    nom:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
-    prenom:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
-    mdp:new FormControl('' , [Validators.required , Validators.minLength(5) ] ), 
-    email:new FormControl('',[Validators.required,Validators.email]),  
+    titre:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
+    description:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
+    lien:new FormControl('' , [Validators.required , Validators.minLength(5) ] ), 
+    etat:new FormControl('',[Validators.required])
   });  
 
   
@@ -31,7 +31,7 @@ export class AddApplicationComponent implements OnInit {
     this.application=new Application();     
     this.application.titre=this.ApplicationTitre?.value
     this.application.etat=this.ApplicationEtat?.value;
-    this.application.descritpion=this.ApplicationDesc?.value
+    this.application.desc=this.ApplicationDesc?.value
     this.application.lien_application=this.Applicationlien?.value;  
     this.submitted = true;  
     this.save();  
@@ -51,6 +51,7 @@ export class AddApplicationComponent implements OnInit {
   }  
   
   get ApplicationTitre(){  
+  
     return this.applicationsaveform.get('titre');  
   }  
   

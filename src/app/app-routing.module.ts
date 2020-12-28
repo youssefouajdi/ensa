@@ -15,14 +15,14 @@ const routes: Routes = [
   { path: '', redirectTo: 'view-utilisateur', pathMatch: 'full' },  
   { path: 'view-utilisateur', component: UtilisateurListComponent },  
   { path: 'add-utilisateur', component: AddUtilisateurComponent },  
-  { path: 'view-cours', component: AddCoursComponent },  
-  { path: 'add-cour', component: CoursListeComponent } ,
-  { path: 'view-application', component: AddApplicationComponent },  
-  { path: 'add-application', component: ApplicationListeComponent }  ,
-  { path: 'view-article', component: AddArticleComponent },  
-  { path: 'add-article', component: ArticleListeComponent },
-  { path: 'view-liens', component: AddLienComponent },  
-  { path: 'add-liens', component: LiensListeComponent }    
+  { path: 'add-cour', component: AddCoursComponent },  
+  { path: 'view-cours', component: CoursListeComponent } ,
+  { path: 'add-application', component: AddApplicationComponent },  
+  { path: 'view-application', component: ApplicationListeComponent }  ,
+  { path: 'add-article', component: AddArticleComponent },  
+  { path: 'view-article', component: ArticleListeComponent },
+  { path: 'add-liens', component: AddLienComponent },  
+  { path: 'view-liens', component: LiensListeComponent }    
 ];
 
 @NgModule({

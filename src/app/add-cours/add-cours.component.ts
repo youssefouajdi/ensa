@@ -19,18 +19,18 @@ export class AddCoursComponent implements OnInit {
   }  
   
   courssaveform=new FormGroup({  
-    nom:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
-    prenom:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
-    mdp:new FormControl('' , [Validators.required , Validators.minLength(5) ] ), 
-    email:new FormControl('',[Validators.required,Validators.email]),  
+    titre:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
+    description:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
+    lien:new FormControl('' , [Validators.required , Validators.minLength(5) ] ), 
+    etat:new FormControl('',[Validators.required]) 
   });  
 
   
   saveCours(saveCours: any){  
     this.cours=new Cours();     
-    this.cours.titre=this.CoursTitre?.value
+    this.cours.titre=this.CoursTitre?.value;
     this.cours.etat=this.CoursEtat?.value;
-    this.cours.descritpion=this.CoursDesc?.value
+    this.cours.desc=this.CoursDesc?.value
     this.cours.lien_cours=this.Courslien?.value;  
     this.submitted = true;  
     this.save();  
