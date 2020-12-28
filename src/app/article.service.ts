@@ -6,25 +6,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ArticleService {
-  private baseUrl = 'http://localhost:8080/application';  
+  private baseUrl = 'http://localhost:8080/article';  
   
   constructor(private http:HttpClient) { }  
   
-  getUtilisateurList(): Observable<any> {  
+  getArticleList(): Observable<any> {  
     return this.http.get(`${this.baseUrl}`+'/admin/show');  
   }  
   
-  createOrUpdateUtilisateur(utilisateur: object) {  
+  createOrUpdateArticle(article: object) {  
     console.log(`${this.baseUrl}`+'/admin/add');
-    return this.http.post(`${this.baseUrl}`+'/admin/add', utilisateur).toPromise();  
+    return this.http.post(`${this.baseUrl}`+'/admin/add', article).toPromise();  
     
   }  
   
-  deleteUtilisateur(id: number): Observable<any> {  
+  deleteArticle(id: number): Observable<any> {  
     return this.http.delete(`${this.baseUrl}/admin/${id}`, { responseType: 'text' });  
   }  
   
-  getUtilisateur(id: number) {  
+  getArticle(id: number) {  
     return this.http.get(`${this.baseUrl}/admin/${id}`).toPromise();  
   }  
 }

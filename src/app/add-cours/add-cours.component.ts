@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Cours } from '../cours';
+import { CoursService } from '../cours.service';
 
 @Component({
   selector: 'app-add-cours',
@@ -6,10 +9,62 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-cours.component.css']
 })
 export class AddCoursComponent implements OnInit {
+ constructor(private coursservice:CoursService) { }  
+  
+  cours : Cours=new Cours();  
+  submitted = false;  
+  
+  ngOnInit() {  
+    this.submitted=false;  
+  }  
+  
+  courssaveform=new FormGroup({  
+    nom:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
+    prenom:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),  
+    mdp:new FormControl('' , [Validators.required , Validators.minLength(5) ] ), 
+    email:new FormControl('',[Validators.required,Validators.email]),  
+  });  
 
-  constructor() { }
+  
+  saveCours(saveCours: any){  
+    this.cours=new Cours();     
+    this.cours.titre=this.CoursTitre?.value
+    this.cours.etat=this.CoursEtat?.value;
+    this.cours.descritpion=this.CoursDesc?.value
+    this.cours.lien_cours=this.Courslien?.value;  
+    this.submitted = true;  
+    this.save();  
+  }  
+  
+  save() {  
+    this.coursservice.createOrUpdateCours(this.cours)  
+    .then(son => {
+      console.log('son', son); 
+    })
+    .catch(err => {
+      console.log(err);
+    });
+    this.cours = new Cours();  
+  }  
+  
+  get CoursTitre(){  
+    return this.courssaveform.get('titre');  
+  }  
+  
+  get CoursDesc(){  
+    return this.courssaveform.get('description');  
+  }  
 
-  ngOnInit(): void {
-  }
+  get CoursEtat(){  
+    return this.courssaveform.get('etat');  
+  } 
 
+  get Courslien(){  
+    return this.courssaveform.get('lien');  
+  }  
+  
+  addCoursForm(){  
+    this.submitted=false;  
+    this.courssaveform.reset();  
+  }  
 }

@@ -6,4 +6,5 @@ export class Application {
     updated_at:Date| undefined;
     etat:Boolean | true | undefined;
     lien_application:String| undefined;
+
 }
